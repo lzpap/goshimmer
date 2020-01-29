@@ -41,7 +41,7 @@ func configureDRNG() {
 			return
 		}
 		lastRound = pb.GetRound()
-		log.Info("New Random:", hex.EncodeToString(pb.GetRandomness()))
+		log.Infow("New Random (round, rn):", lastRound, hex.EncodeToString(pb.GetRandomness())[0:8])
 	}))
 }
 
