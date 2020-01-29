@@ -20,7 +20,7 @@ const (
 )
 
 var (
-	last *[]byte
+	lastRound = uint64(0)
 )
 
 func configureDRNG() {
@@ -38,6 +38,10 @@ func configureDRNG() {
 		if err != nil {
 			return
 		}
+		if pb.GetRound() <= lastRound {
+			return
+		}
+		lastRound = pb.GetRound()
 		log.Info("New Random:", hex.EncodeToString(pb.GetRandomness()))
 	}))
 }
