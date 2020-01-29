@@ -3,7 +3,6 @@ package drng
 import (
 	"encoding/hex"
 	"errors"
-	"fmt"
 	"strconv"
 
 	"github.com/drand/drand/protobuf/drand"
@@ -67,7 +66,6 @@ func hasValidData(tx *value_transaction.ValueTransaction) ([]byte, error) {
 	if l+3 > len(buf) {
 		return nil, errors.New("Wrong size")
 	}
-	fmt.Println(l)
 	msg := buf[3 : l+3]
 	data := make([]byte, l)
 	_, err = hex.Decode(data, msg)
