@@ -8,6 +8,7 @@ import (
 	"github.com/iotaledger/goshimmer/plugins/autopeering"
 	"github.com/iotaledger/goshimmer/plugins/bundleprocessor"
 	"github.com/iotaledger/goshimmer/plugins/cli"
+	"github.com/iotaledger/goshimmer/plugins/drng"
 	"github.com/iotaledger/goshimmer/plugins/gossip"
 	"github.com/iotaledger/goshimmer/plugins/gracefulshutdown"
 	"github.com/iotaledger/goshimmer/plugins/graph"
@@ -44,6 +45,7 @@ func main() {
 			gracefulshutdown.PLUGIN,
 			tipselection.PLUGIN,
 			metrics.PLUGIN,
+			drng.PLUGIN,
 
 			statusscreen.PLUGIN,
 			statusscreen_tps.PLUGIN,

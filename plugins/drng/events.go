@@ -1,0 +1,16 @@
+package drng
+
+import (
+	"github.com/iotaledger/goshimmer/packages/model/value_transaction"
+	"github.com/iotaledger/hive.go/events"
+)
+
+var Events = struct {
+	NewDRNG *events.Event
+}{
+	NewDRNG: events.NewEvent(transactionCaller),
+}
+
+func transactionCaller(handler interface{}, params ...interface{}) {
+	handler.(func(*value_transaction.ValueTransaction))(params[0].(*value_transaction.ValueTransaction))
+}
